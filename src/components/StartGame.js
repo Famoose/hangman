@@ -1,6 +1,5 @@
+import React from 'react'
 const StartGame = () => {
-    return(
-        <button>Start Game</button>
-    )
+    return <button>Start Game</button>
 }
-export default StartGame;
+export default StartGame
