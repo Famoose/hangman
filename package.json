@@ -22,7 +22,8 @@
         "eject": "react-scripts eject",
         "prepare": "husky install",
         "format": "prettier . -w",
-        "lint": "eslint"
+        "lint": "eslint",
+        "testt": "echo \"test: \" $TEST"
     },
     "eslintConfig": {
         "extends": [
@@ -43,6 +44,7 @@
         ]
     },
     "devDependencies": {
+        "@testing-library/react-hooks": "^7.0.2",
         "eslint": "^7.32.0",
         "eslint-plugin-react": "^7.28.0",
         "husky": "^7.0.4",
