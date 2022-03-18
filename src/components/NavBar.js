@@ -90,7 +90,8 @@ const ResponsiveAppBar = () => {
                                     <Link to={page.to}>
                                         <Typography textAlign="center">{page.name}</Typography>
                                     </Link>
-                                </MenuItem>))}
+                                </MenuItem>
+                            ))}
                     </Menu>
                 </Box>
                 <Typography
