@@ -1,18 +1,12 @@
-import {fireEvent, render, screen} from "@testing-library/react";
+import {fireEvent, screen} from "@testing-library/react";
 import NavBar from "./NavBar";
-import {UserContext} from '../lib/Context'
 import {MemoryRouter} from "react-router-dom";
 import {auth} from "../lib/FirebaseApp";
+import {contextRender} from "../../test/testUtil";
 
 jest.mock('../lib/FirebaseApp');
 
-describe('NavBar tests', () => {
-    const contextRender = (ui, {providerProps, ...renderOptions}) => {
-        return render(
-            <UserContext.Provider {...providerProps}>{ui}</UserContext.Provider>,
-            renderOptions,
-        )
-    }
+describe('Test NavBar component', () => {
 
     test('should render login and register without user', async () => {
         const providerProps = {value: {user: null, profile: null}};
