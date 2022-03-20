@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { Fit, Layout, useRive, useStateMachineInput } from 'rive-react'
+import PropTypes from 'prop-types'
 
-const Revolver = ({ shoot }) => {
+const Revolver = (props) => {
     const STATE_MACHINE_NAME = 'RevolverCycle'
     const triggerWithout = 'shootWithout'
     const triggerArmed = 'shootArmed'
@@ -25,7 +26,7 @@ const Revolver = ({ shoot }) => {
     )
 
     useEffect(() => {
-        shoot.current = (bullet) => {
+        props.shoot.current = (bullet) => {
             if (bullet) {
                 shootArmed.fire()
             } else {
@@ -35,5 +36,12 @@ const Revolver = ({ shoot }) => {
     }, [shootWithout, shootArmed])
 
     return <RiveComponent style={{ height: '350px' }} />
+}
+
+Revolver.propTypes = {
+    shoot: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+    ]),
 }
 export default Revolver
