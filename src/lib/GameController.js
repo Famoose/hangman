@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import * as randomWords from 'random-words'
 
 export const USABLE_KEYS = [
@@ -31,9 +31,9 @@ export const USABLE_KEYS = [
 ]
 export const CHAMBER_SIZE = 10
 
-export function useGameController(shootCallback) {
+export function useGameController(shootCallback, onRoundComplete) {
     const [points, setPoints] = useState(0)
-    const [word, setWord] = useState(randomWords())
+    const [word, setWord] = useState(randomWords.default())
     const [round, setRound] = useState(0)
     const [keysUsed, setKeyUsed] = useState([])
     const [revolverShoot, setRevolverShoot] = useState(0)
@@ -56,10 +56,14 @@ export function useGameController(shootCallback) {
         } else {
             // returns true if revolver hits bullet
             if (triggerRevolver()) {
-                shootCallback(true)
+                if (shootCallback) {
+                    shootCallback(true)
+                }
                 endRound()
             } else {
-                shootCallback(false)
+                if (shootCallback) {
+                    shootCallback(false)
+                }
             }
         }
     }
@@ -76,11 +80,14 @@ export function useGameController(shootCallback) {
         setKeyUsed(() => [])
         setPoints(points + word.length)
         setRound(round + 1)
-        setWord(randomWords())
+        setWord(randomWords.default())
         spinRevolver()
     }
 
     const endRound = () => {
+        if (onRoundComplete) {
+            onRoundComplete()
+        }
         setKeyUsed(() => USABLE_KEYS)
         setWord('gameover')
     }
@@ -98,6 +105,8 @@ export function useGameController(shootCallback) {
 
     return {
         word,
+        round,
+        points,
         keysUsed,
         guessKey,
     }
