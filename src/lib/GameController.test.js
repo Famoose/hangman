@@ -49,6 +49,8 @@ describe("test Game Controller", () => {
         const {result} = renderHook(() => useGameController(shootCallback))
         act(() => {
             result.current.guessKey('a')
+        })
+        act(() => {
             result.current.guessKey('a')
         })
         expect(result.current.word).toBe('testword')
@@ -57,7 +59,8 @@ describe("test Game Controller", () => {
     })
 
     test('should finish one round', () => {
-        const shootCallback = jest.fn(() => {})
+        const shootCallback = jest.fn(() => {
+        })
         const {result} = renderHook(() => useGameController(shootCallback))
         let usedKeys = []
         for (let i = 0; i < USABLE_KEYS.length && result.current.word !== 'gameover'; i++) {
@@ -74,7 +77,8 @@ describe("test Game Controller", () => {
     })
 
     test('should guess word', () => {
-        const shootCallback = jest.fn(() => {})
+        const shootCallback = jest.fn(() => {
+        })
         const {result} = renderHook(() => useGameController(shootCallback))
         const keysToUse = 'testword'.split('');
         let usedKeys = []
