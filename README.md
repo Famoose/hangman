@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# FWEBT HANGMAN
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+FWEBT, FORTGESCHRITTENE WEB-TECHNOLOGIEN, INF-W-AF004, BE-SA-1, FS22, DR. GREEVY ORLA
+> AUTHORS: LUKAS NYDEGGER, ANDREA SORRENTINO
+
+## Spielidee und Regeln
+
+Die Spielidee beinhaltet ein einfaches und bekanntes Hangman Spiel. Dabei geht es darum so viele gesuchte Wörter wie
+möglich zu erraten. Bei jedem Fehler bzw. nicht vorhandenen Buchstaben, wird der Gehängte Stück für Stück gezeichnet.
+Die Zeichnung baut sich ungefähr wie folgt zusammen: Zuerst die Basis, dann der mittlere Pfosten, als nächstes die hohe
+Latte, dann das Seil, der Kopf, der Brustbereich, die Arme/Hände und zum Schluss die Beine/Füsse (Wie der Gehängte
+gezeichnet wird, ist von Interpretation zu Interpretation anders). Für jedes korrekt erratene Wort gibt es Punkte zu
+gewinnen. Die Abwandlung dieser Idee, ist noch eine glückbasierte Mechanik hinzuzufügen in Form eines russischen
+Roulettes. Dieses «Spiel» funktioniert wie folgt: Es gibt eine Revolverkammer, diese hat 6 Plätze und ein Schuss wird
+zum Start des Spiels geladen und die Kammer wird zufällig oft gedreht. Jeder Spieler muss nun die Waffe rundenweise
+abdrücken und wer den Schuss erwischt hat verloren. Für dieses Projekt wird die Revolverkammer allerdings nach jedem
+falsch erratenen Buchstaben nicht nur abgedrückt, was bei einem Treffer ein Game Over bedeutet. Nach jeder überstandenen
+Runde wird die Kammer zunehmend mit mehr Schüsse geladen. Wenn ein Wort erraten wurde, wird die Kammer wieder
+zurückgesetzt und bis auf 1 Schuss geleert.
 
 ## Available Scripts
 
@@ -17,7 +33,8 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more
+information.
 
 ### `npm run build`
 
@@ -28,43 +45,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
