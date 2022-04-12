@@ -17,7 +17,7 @@ const whileUntilValidWorld = (wordGenerator) => {
     let isValid = false;
     let word;
     while (!isValid) {
-        word = wordGenerator()
+        word = wordGenerator().toLowerCase()
         isValid = isValidWord(word)
     }
     return word;
@@ -34,7 +34,7 @@ export function WordGenerator() {
             if (lang !== 'en') {
                 console.warn(`language ${lang} not implemented switching to en`)
             }
-            return randomWords.default();
+            return randomWords.default().toLowerCase();
         }
     }
 
