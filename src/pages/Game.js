@@ -20,7 +20,7 @@ const Game = () => {
         if (!loading && !user) {
             navigate(`/login`)
         }
-    }, [user])
+    }, [user, loading])
 
     const shootRevolverVisual = React.useRef(null)
     const shootRevolverCallback = (isBullet) => {

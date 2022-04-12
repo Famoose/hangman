@@ -14,7 +14,7 @@ const Home = () => {
         if (!loading && !user) {
             navigate(`/login`)
         }
-    }, [user])
+    }, [user, loading])
 
     return (
         <Container component="main" maxWidth="xs"  sx={{mt: 4}}>
