@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {UserContext} from '../lib/Context'
-import {Container, Grid, Stack, Typography} from '@mui/material'
+import {Container, Stack, Typography} from '@mui/material'
 import Button from '@mui/material/Button'
 import {v4 as uuidv4} from "uuid";
 import ScoreBoard from "../components/home/ScoreBoard";
