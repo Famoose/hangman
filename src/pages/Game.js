@@ -9,9 +9,12 @@ import Button from "@mui/material/Button";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {doc, setDoc} from 'firebase/firestore';
 import {db, getUid} from "../lib/FirebaseApp";
-import {UserContext} from "../lib/Context";
+import {UserContext} from "../lib/UserContext";
+import {Trans, useTranslation} from "react-i18next";
 
 const Game = () => {
+    const {t} = useTranslation();
+
     const {sessionId} = useParams();
     const {user, profile, loading} = useContext(UserContext)
     const navigate = useNavigate()
@@ -39,8 +42,9 @@ const Game = () => {
 
     return (
         <>
+
             <Container component="main" maxWidth="md" sx={{mt: 4, position: 'relative', zIndex: 0}}>
-                {!isGameOver && <Chip label={`Score: ${points}`} color="primary"/>}
+                {!isGameOver && <Chip label={t('game.score', {points})} color="primary"/>}
                 <Revolver shoot={shootRevolverVisual}/>
                 {!isGameOver && <WordHintDisplayer word={word} keysUsed={keysUsed}/>}
                 {!isGameOver && <Keys keysUsed={keysUsed} guessKey={guessKey}/>}
@@ -50,16 +54,16 @@ const Game = () => {
                 <Container component="div" maxWidth="md"
                            sx={{mt: {xs: -30, sm: -30, md: -20}, position: 'relative', zIndex: 50}}>
                     <Typography component="h1" variant='h1' textAlign='center' sx={{color: 'white'}}>
-                        Game Over
+                        <Trans>game.gameover</Trans>
                     </Typography>
                     <Typography component="h1" variant='h5' textAlign='center' sx={{color: 'white'}}>
-                        it was: {word}
+                        <Trans i18nKey='game.hint' >It was: {{word}}</Trans>
                     </Typography>
                     <Typography component="h3" variant='h3' textAlign='center' sx={{color: 'white'}}>
-                        Score: {points}
+                        <Trans i18nKey='game.score' >Score: {{points}}</Trans>
                     </Typography>
                     <Stack spacing={2} direction="row" justifyContent='center' sx={{mt: {xs: 2, sm: 10, md: 20}}}>
-                        <Link to='/'><Button color='primary' variant="outlined">Continue</Button></Link>
+                        <Link to='/'><Button variant="contained"><Trans>game.continue</Trans></Button></Link>
                     </Stack>
                 </Container>
             </>}

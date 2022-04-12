@@ -1,0 +1,75 @@
+{
+  "home": {
+    "ranking": "Elenco delle classifiche",
+    "worldWide": "In tutto il mondo",
+    "personal": "Persönlich",
+    "startGame": "Personale"
+  },
+  "nav": {
+    "languageSwitchButton": "Lingua",
+    "selectLanguageTooltip": "Cambiare lingua",
+    "languages": {
+      "german": "Tedesco",
+      "italian": "Italiano",
+      "english": "Inglese"
+    },
+    "settingsTooltip": "Impostazioni aperte",
+    "settings": {
+      "logout": "Disconnettersi"
+    },
+    "pages": {
+      "home": "Casa",
+      "register": "Registra",
+      "login": "Entrare"
+    }
+  },
+  "game": {
+    "hint": "Era: {{word}}",
+    "score": "Punteggio: {{points}}",
+    "gameover": "Gioco finito",
+    "continue": "Ulteriori"
+  },
+  "login": {
+    "title": "Entrare",
+    "email": {
+      "label": "Email",
+      "error": {
+        "pattern": "Inserisci un indirizzo email valido",
+        "required": "L'e-mail è richiesta"
+      }
+    },
+    "password": {
+      "label": "Password",
+      "error": {
+        "minLength": "La password deve avere almeno 5 caratteri",
+        "required": "La password è richiesta"
+      }
+    },
+    "submit": "Entrare"
+  },
+  "register": {
+    "title": "Registra",
+    "email": {
+      "label": "Email",
+      "error": {
+        "pattern": "Inserisci un indirizzo email valido",
+        "required": "L'e-mail è richiesta"
+      }
+    },
+    "password": {
+      "label": "Password",
+      "error": {
+        "minLength": "La password deve avere almeno 5 caratteri",
+        "required": "La password è richiesta"
+      }
+    },
+    "username": {
+      "label": "Nome utente",
+      "error": {
+        "minLength": "Il nome utente deve avere almeno 3 caratteri",
+        "required": "Il nome utente è richiesto"
+      }
+    },
+    "submit": "Registra"
+  }
+}

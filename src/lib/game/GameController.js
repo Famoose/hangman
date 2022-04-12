@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import * as randomWords from 'random-words'
+import {WordGenerator} from "./WordGenerator";
 
 export const USABLE_KEYS = [
     'a',
@@ -32,8 +32,10 @@ export const USABLE_KEYS = [
 export const CHAMBER_SIZE = 10
 
 export function useGameController(shootCallback, onRoundComplete) {
+    const {generate} = WordGenerator()
+
     const [points, setPoints] = useState(0)
-    const [word, setWord] = useState(randomWords.default())
+    const [word, setWord] = useState(generate)
     const [round, setRound] = useState(0)
     const [keysUsed, setKeyUsed] = useState([])
     const [revolverShoot, setRevolverShoot] = useState(0)
@@ -81,7 +83,7 @@ export function useGameController(shootCallback, onRoundComplete) {
         setKeyUsed(() => [])
         setPoints(points + word.length)
         setRound(round + 1)
-        setWord(randomWords.default())
+        setWord(generate)
         spinRevolver()
     }
 

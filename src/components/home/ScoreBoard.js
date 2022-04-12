@@ -6,6 +6,7 @@ import {db} from "../../lib/FirebaseApp";
 import {useCollection} from "react-firebase-hooks/firestore";
 import PropTypes from "prop-types";
 import {Container, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography} from "@mui/material";
+import {Trans} from "react-i18next";
 
 function ScoreBoardTable(props) {
     return <TableContainer component="aside">
@@ -45,27 +46,25 @@ const ScoreBoard = (props) => {
     const [topTenPersonal] = useCollection(topTenPersonalQuery);
 
     useEffect(async () => {
-        console.log(topTenWorldWide)
     }, [topTenWorldWide])
 
     useEffect(() => {
-        console.log(topTenPersonal)
     }, [topTenPersonal])
 
     return <Container component='section' maxWidth='lg'>
         <Typography component='h3' variant='h4' sx={{textAlign: 'center'}}>
-            Ranking
+            <Trans>home.ranking</Trans>
         </Typography>
         <Stack justifyContent='center' direction={{xs: 'column', md: 'row'}}>
             <Container>
                 <Typography component='h3' variant='h6' sx={{textAlign: 'center'}}>
-                    World wide
+                    <Trans>home.worldWide</Trans>
                 </Typography>
                 <ScoreBoardTable topTenDocs={topTenWorldWide}/>
             </Container>
             <Container>
                 <Typography component='h3' variant='h6' sx={{textAlign: 'center'}}>
-                    Personal
+                    <Trans>home.personal</Trans>
                 </Typography>
                 <ScoreBoardTable topTenDocs={topTenPersonal}/>
             </Container>

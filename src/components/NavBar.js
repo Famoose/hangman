@@ -7,42 +7,40 @@ import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import './NavBar.css'
-import { useContext } from 'react'
-import { UserContext } from '../lib/Context'
-import { auth } from '../lib/FirebaseApp'
+import {useContext} from 'react'
+import {UserContext} from '../lib/UserContext'
+import {auth} from '../lib/FirebaseApp'
+import UserSettings from "./nav/UserSettings";
+import LanguageSwitch from "./nav/LanguageSwitch";
+import {Trans} from "react-i18next";
 
 const pages = [
-    { name: 'Home', to: '/', onLogin: true },
-    { name: 'Login', to: '/login', onLogin: false },
-    { name: 'Register', to: '/register', onLogin: false },
+    {name: 'home', to: '/', onLogin: true},
+    {name: 'login', to: '/login', onLogin: false},
+    {name: 'register', to: '/register', onLogin: false},
 ]
-const settings = [{ name: 'Logout', callback: () => auth.signOut() }]
+
+const langs = [
+    {key: 'de', name: 'german'},
+    {key: 'it', name: 'italian'},
+    {key: 'en', name: 'english'}
+]
+
+const settings = [{name: 'logout', callback: () => auth.signOut()}]
 
 const ResponsiveAppBar = () => {
-    const { user, profile } = useContext(UserContext)
+    const {user, profile} = useContext(UserContext)
     const isLoggedIn = !!user && !!profile
     const [anchorElNav, setAnchorElNav] = React.useState(null)
-    const [anchorElUser, setAnchorElUser] = React.useState(null)
-
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget)
     }
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget)
-    }
-
     const handleCloseNavMenu = () => {
         setAnchorElNav(null)
-    }
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null)
     }
 
     return (
@@ -53,7 +51,7 @@ const ResponsiveAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                        sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
                     >
                         Hangman
                     </Typography>
@@ -61,7 +59,7 @@ const ResponsiveAppBar = () => {
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: 'flex', md: 'none' },
+                            display: {xs: 'flex', md: 'none'},
                         }}
                     >
                         <IconButton
@@ -72,7 +70,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -89,7 +87,7 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: {xs: 'block', md: 'none'},
                             }}
                         >
                             {pages
@@ -101,7 +99,7 @@ const ResponsiveAppBar = () => {
                                     >
                                         <Link to={page.to}>
                                             <Typography textAlign="center">
-                                                {page.name}
+                                                <Trans>nav.pages.{page.name}</Trans>
                                             </Typography>
                                         </Link>
                                     </MenuItem>
@@ -114,7 +112,7 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{
                             flexGrow: 1,
-                            display: { xs: 'flex', md: 'none' },
+                            display: {xs: 'flex', md: 'none'},
                         }}
                     >
                         Hangman
@@ -122,7 +120,7 @@ const ResponsiveAppBar = () => {
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: 'none', md: 'flex' },
+                            display: {xs: 'none', md: 'flex'},
                         }}
                     >
                         {pages
@@ -137,53 +135,17 @@ const ResponsiveAppBar = () => {
                                             display: 'block',
                                         }}
                                     >
-                                        {page.name}
+                                        <Trans>nav.pages.{page.name}</Trans>
                                     </Button>
                                 </Link>
                             ))}
                     </Box>
-                    {isLoggedIn && (
-                        <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="Open settings">
-                                <IconButton
-                                    onClick={handleOpenUserMenu}
-                                    sx={{ p: 0 }}
-                                >
-                                    <Avatar alt={profile.username} src="/" />
-                                </IconButton>
-                            </Tooltip>
-                            <Menu
-                                sx={{ mt: '45px' }}
-                                id="menu-appbar"
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
-                            >
-                                {settings.map((setting) => (
-                                    <MenuItem
-                                        key={setting.name}
-                                        onClick={() => {
-                                            setting.callback()
-                                            handleCloseUserMenu()
-                                        }}
-                                    >
-                                        <Typography textAlign="center">
-                                            {setting.name}
-                                        </Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
-                        </Box>
-                    )}
+                    <Box sx={{flexGrow: 0}}>
+                        {isLoggedIn && (
+                            <UserSettings settings={settings} profile={profile}/>
+                        )}
+                        <LanguageSwitch langs={langs} profile={profile}/>
+                    </Box>
                 </Toolbar>
             </Container>
         </AppBar>

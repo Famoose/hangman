@@ -1,12 +1,15 @@
 import React, { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { auth } from '../lib/FirebaseApp'
-import { UserContext } from '../lib/Context'
+import { UserContext } from '../lib/UserContext'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { Box, Button, Container, TextField, Typography } from '@mui/material'
+import {Trans, useTranslation} from "react-i18next";
 
 const Login = () => {
+    const {t} = useTranslation();
+
     const {
         register,
         handleSubmit,
@@ -35,7 +38,7 @@ const Login = () => {
     return (
         <Container component="main" maxWidth="xs" sx={{ mt: 4 }}>
             <Typography component="h1" variant="h5">
-                Login
+                <Trans>login.title</Trans>
             </Typography>
             <Box
                 component="form"
@@ -47,15 +50,14 @@ const Login = () => {
                 }}
             >
                 <TextField
-                    label="Email"
+                    label={t('login.email.label')}
                     variant="outlined"
                     id="email"
                     {...register('email', {
-                        required: 'required',
+                        required: t('login.email.error.required'),
                         pattern: {
                             value: /\S+@\S+\.\S+/,
-                            message:
-                                'Entered value does not match email format',
+                            message: t('login.email.error.pattern'),
                         },
                     })}
                     fullWidth
@@ -66,14 +68,14 @@ const Login = () => {
                     helperText={errors?.email?.message}
                 />
                 <TextField
-                    label="Password"
+                    label={t('login.password.label')}
                     variant="outlined"
                     id="password"
                     {...register('password', {
-                        required: 'required',
+                        required: t('login.password.error.required'),
                         minLength: {
                             value: 5,
-                            message: 'min length is 5',
+                            message: t('login.password.error.minLength'),
                         },
                     })}
                     fullWidth
@@ -87,7 +89,7 @@ const Login = () => {
                     variant="contained"
                     sx={{ alignSelf: 'flex-end' }}
                 >
-                    Login
+                    <Trans>login.submit</Trans>
                 </Button>
             </Box>
         </Container>

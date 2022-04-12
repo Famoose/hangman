@@ -5,8 +5,11 @@ import { auth, db } from '../lib/FirebaseApp'
 import { doc, setDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { Box, Button, Container, TextField, Typography } from '@mui/material'
+import {Trans, useTranslation} from "react-i18next";
 
 const Register = () => {
+    const {t} = useTranslation();
+
     const {
         register,
         handleSubmit,
@@ -22,7 +25,6 @@ const Register = () => {
                 data.email,
                 data.password
             )
-            console.log(credential)
             const userDoc = doc(db, 'users', credential.user.uid)
             await setDoc(userDoc, {
                 username: data.username,
@@ -37,7 +39,7 @@ const Register = () => {
     return (
         <Container component="main" maxWidth="xs" sx={{ mt: 4 }}>
             <Typography component="h1" variant="h5">
-                Register
+                <Trans>register.title</Trans>
             </Typography>
             <Box
                 component="form"
@@ -49,15 +51,14 @@ const Register = () => {
                 }}
             >
                 <TextField
-                    label="Email"
+                    label={t('register.email.label')}
                     variant="outlined"
                     id="email"
                     {...register('email', {
-                        required: 'required',
+                        required: t('register.email.error.required'),
                         pattern: {
                             value: /\S+@\S+\.\S+/,
-                            message:
-                                'Entered value does not match email format',
+                            message: t('register.email.error.pattern'),
                         },
                     })}
                     fullWidth
@@ -68,14 +69,14 @@ const Register = () => {
                     helperText={errors?.email?.message}
                 />
                 <TextField
-                    label="Username"
+                    label={t('register.username.label')}
                     variant="outlined"
                     id="username"
                     {...register('username', {
-                        required: 'required',
+                        required: t('register.username.error.required'),
                         minLength: {
                             value: 3,
-                            message: 'min length is 3',
+                            message: t('register.username.error.minLength'),
                         },
                     })}
                     type="text"
@@ -85,14 +86,14 @@ const Register = () => {
                     helperText={errors?.username?.message}
                 />
                 <TextField
-                    label="Password"
+                    label={t('register.password.label')}
                     variant="outlined"
                     id="password"
                     {...register('password', {
-                        required: 'required',
+                        required: t('register.password.error.required'),
                         minLength: {
                             value: 5,
-                            message: 'min length is 5',
+                            message: t('register.password.error.minLength'),
                         },
                     })}
                     fullWidth

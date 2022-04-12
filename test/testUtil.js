@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { UserContext } from '../src/lib/Context'
+import { UserContext } from '../src/lib/UserContext'
 
 export const contextRender = (ui, { providerProps, ...renderOptions }) => {
     return render(
