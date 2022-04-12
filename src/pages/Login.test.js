@@ -18,8 +18,8 @@ describe('Test Login component', () => {
             contextRender(<Login />, { providerProps, wrapper: MemoryRouter })
         })
 
-        const inputEmail = screen.getByLabelText('Email')
-        const inputPassword = screen.getByLabelText('Password')
+        const inputEmail = screen.getByLabelText('login.email.label')
+        const inputPassword = screen.getByLabelText('login.password.label')
         const login = screen.getByRole('button', { name: /Login/i })
 
         await act(async () => {
@@ -44,8 +44,8 @@ describe('Test Login component', () => {
             contextRender(<Login />, { providerProps, wrapper: MemoryRouter })
         })
 
-        const inputEmail = screen.getByLabelText('Email')
-        const inputPassword = screen.getByLabelText('Password')
+        const inputEmail = screen.getByLabelText('login.email.label')
+        const inputPassword = screen.getByLabelText('login.password.label')
         const login = screen.getByRole('button', { name: /Login/i })
 
         await act(async () => {
@@ -66,8 +66,8 @@ describe('Test Login component', () => {
             contextRender(<Login />, { providerProps, wrapper: MemoryRouter })
         })
 
-        const inputEmail = screen.getByLabelText('Email')
-        const inputPassword = screen.getByLabelText('Password')
+        const inputEmail = screen.getByLabelText('login.email.label')
+        const inputPassword = screen.getByLabelText('login.password.label')
         const login = screen.getByRole('button', { name: /Login/i })
 
         await act(async () => {

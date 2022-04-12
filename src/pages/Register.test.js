@@ -23,9 +23,9 @@ describe('Test Register component', () => {
             render(<Register />, { wrapper: MemoryRouter })
         })
 
-        const inputEmail = screen.getByLabelText('Email')
-        const inputPassword = screen.getByLabelText('Password')
-        const inputUsername = screen.getByLabelText('Username')
+        const inputEmail = screen.getByLabelText('register.email.label')
+        const inputPassword = screen.getByLabelText('register.password.label')
+        const inputUsername = screen.getByLabelText('register.username.label')
         const register = screen.getByRole('button', { name: /Register/i })
 
         await act(async () => {
@@ -48,9 +48,9 @@ describe('Test Register component', () => {
             render(<Register />, { wrapper: MemoryRouter })
         })
 
-        const inputEmail = screen.getByLabelText('Email')
-        const inputPassword = screen.getByLabelText('Password')
-        const inputUsername = screen.getByLabelText('Username')
+        const inputEmail = screen.getByLabelText('register.email.label')
+        const inputPassword = screen.getByLabelText('register.password.label')
+        const inputUsername = screen.getByLabelText('register.username.label')
         const register = screen.getByRole('button', { name: /Register/i })
 
         await act(async () => {
@@ -68,9 +68,9 @@ describe('Test Register component', () => {
             render(<Register />, { wrapper: MemoryRouter })
         })
 
-        const inputEmail = screen.getByLabelText('Email')
-        const inputPassword = screen.getByLabelText('Password')
-        const inputUsername = screen.getByLabelText('Username')
+        const inputEmail = screen.getByLabelText('register.email.label')
+        const inputPassword = screen.getByLabelText('register.password.label')
+        const inputUsername = screen.getByLabelText('register.username.label')
         const register = screen.getByRole('button', { name: /Register/i })
 
         await act(async () => {
@@ -87,9 +87,9 @@ describe('Test Register component', () => {
             render(<Register />, { wrapper: MemoryRouter })
         })
 
-        const inputEmail = screen.getByLabelText('Email')
-        const inputPassword = screen.getByLabelText('Password')
-        const inputUsername = screen.getByLabelText('Username')
+        const inputEmail = screen.getByLabelText('register.email.label')
+        const inputPassword = screen.getByLabelText('register.password.label')
+        const inputUsername = screen.getByLabelText('register.username.label')
         const register = screen.getByRole('button', { name: /Register/i })
 
         await act(async () => {
