@@ -19,3 +19,11 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
 export const auth = getAuth(app)
+
+export const getUid = () => {
+    if (auth.currentUser) {
+        return auth.currentUser.uid
+    } else {
+        throw Error('no current User found')
+    }
+}

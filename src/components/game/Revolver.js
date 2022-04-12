@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {Fit, Layout, useRive, useStateMachineInput} from 'rive-react'
 import PropTypes from 'prop-types'
+import {Container} from "@mui/material";
 
 const Revolver = (props) => {
     const STATE_MACHINE_NAME = 'RevolverCycle'
@@ -13,7 +14,7 @@ const Revolver = (props) => {
         artboard: 'revolver',
         layout: new Layout({fit: Fit.FitHeight}),
     }
-    const { RiveComponent, rive } = useRive(params)
+    const {RiveComponent, rive} = useRive(params)
     const shootWithout = useStateMachineInput(
         rive,
         STATE_MACHINE_NAME,
@@ -35,13 +36,13 @@ const Revolver = (props) => {
         }
     }, [shootWithout, shootArmed])
 
-    return <RiveComponent style={{height: '320px'}}/>
+    return <Container sx={{height: {xs: '200px', sm: '250px', md: '300px', lg: '350px'}}}><RiveComponent/></Container>
 }
 
 Revolver.propTypes = {
     shoot: PropTypes.oneOfType([
         PropTypes.func,
-        PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+        PropTypes.shape({current: PropTypes.any})
     ]),
 }
 export default Revolver

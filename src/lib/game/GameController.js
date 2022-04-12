@@ -87,10 +87,9 @@ export function useGameController(shootCallback, onRoundComplete) {
 
     const endRound = () => {
         if (onRoundComplete) {
-            onRoundComplete()
+            Promise.resolve(onRoundComplete()).then();
         }
         setKeyUsed(() => USABLE_KEYS)
-        setWord('gameover')
         setIsGameOver(true)
     }
 

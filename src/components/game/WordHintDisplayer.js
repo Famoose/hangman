@@ -15,7 +15,7 @@ const WordHintDisplayer = (props) => {
             fullWidth
         >
             {props.word.split('').map((key, index) => (
-                <Typography component="h1" key={index} variant="h1">
+                <Typography component="h1" key={index} variant='h3'>
                     {displayKeyIfGuessed(key)}
                 </Typography>
             ))}
