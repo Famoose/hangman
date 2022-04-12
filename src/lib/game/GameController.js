@@ -38,6 +38,7 @@ export function useGameController(shootCallback, onRoundComplete) {
     const [keysUsed, setKeyUsed] = useState([])
     const [revolverShoot, setRevolverShoot] = useState(0)
     const [revolverPosition, setRevolverPosition] = useState(0)
+    const [isGameOver, setIsGameOver] = useState(false)
 
     useEffect(() => {
         spinRevolver()
@@ -90,6 +91,7 @@ export function useGameController(shootCallback, onRoundComplete) {
         }
         setKeyUsed(() => USABLE_KEYS)
         setWord('gameover')
+        setIsGameOver(true)
     }
 
     const spinRevolver = () => {
@@ -109,5 +111,6 @@ export function useGameController(shootCallback, onRoundComplete) {
         points,
         keysUsed,
         guessKey,
+        isGameOver
     }
 }

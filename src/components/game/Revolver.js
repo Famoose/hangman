@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Fit, Layout, useRive, useStateMachineInput } from 'rive-react'
+import React, {useEffect} from 'react'
+import {Fit, Layout, useRive, useStateMachineInput} from 'rive-react'
 import PropTypes from 'prop-types'
 
 const Revolver = (props) => {
@@ -7,11 +7,11 @@ const Revolver = (props) => {
     const triggerWithout = 'shootWithout'
     const triggerArmed = 'shootArmed'
     const params = {
-        src: 'revolver.riv',
+        src: '../revolver.riv',
         stateMachines: STATE_MACHINE_NAME,
         autoplay: true,
         artboard: 'revolver',
-        layout: new Layout({ fit: Fit.FitHeight }),
+        layout: new Layout({fit: Fit.FitHeight}),
     }
     const { RiveComponent, rive } = useRive(params)
     const shootWithout = useStateMachineInput(
@@ -35,7 +35,7 @@ const Revolver = (props) => {
         }
     }, [shootWithout, shootArmed])
 
-    return <RiveComponent style={{ height: '350px' }} />
+    return <RiveComponent style={{height: '320px'}}/>
 }
 
 Revolver.propTypes = {

@@ -1,76 +1,46 @@
 import React from 'react'
-import Button from '@mui/material/Button'
-import * as PropTypes from 'prop-types'
-import { Container, Grid, Typography } from '@mui/material'
-import Box from '@mui/material/Box'
-import Revolver from '../components/Revolver'
-import { USABLE_KEYS, useGameController } from '../lib/GameController'
-
-const Keys = (props) => {
-    return (
-        <Grid
-            container
-            spacing={{ xs: 1, md: 1, sm: 1 }}
-            columns={{ xs: 5, sm: 6, md: 13 }}
-        >
-            {USABLE_KEYS.map((key) => (
-                <Grid item xs={1} sm={1} md={1} key={key}>
-                    <Button
-                        variant="text"
-                        onClick={() => {
-                            props.guessKey(key)
-                        }}
-                        disabled={props.keysUsed.includes(key)}
-                    >
-                        {key}
-                    </Button>
-                </Grid>
-            ))}
-        </Grid>
-    )
-}
-
-Keys.propTypes = {
-    keysUsed: PropTypes.array,
-    guessKey: PropTypes.func,
-}
-
-const WordHintDisplayer = (props) => {
-    const displayKeyIfGuessed = (key) => {
-        return props.keysUsed.includes(key) ? key : '_'
-    }
-
-    return (
-        <Box
-            m={5}
-            sx={{ display: 'flex', justifyContent: 'space-evenly' }}
-            fullWidth
-        >
-            {props.word.split('').map((key, index) => (
-                <Typography component="h1" key={index} variant="h1">
-                    {displayKeyIfGuessed(key)}
-                </Typography>
-            ))}
-        </Box>
-    )
-}
-WordHintDisplayer.propTypes = {
-    word: PropTypes.string,
-    keysUsed: PropTypes.array,
-}
+import {Chip, Container, Stack, Typography} from '@mui/material'
+import Revolver from '../components/game/Revolver'
+import {useGameController} from '../lib/game/GameController'
+import WordHintDisplayer from "../components/game/WordHintDisplayer";
+import Keys from "../components/game/Keys";
+import Background from "../components/game/Background";
+import Button from "@mui/material/Button";
+import {Link} from "react-router-dom";
 
 const Game = () => {
     const shootRevolverVisual = React.useRef(null)
-    const { word, keysUsed, guessKey } = useGameController((isBullet) => {
+    const shootRevolverCallback = (isBullet) => {
         shootRevolverVisual.current(isBullet)
-    })
+    }
+
+    let {word, keysUsed, guessKey, points, isGameOver} = useGameController(shootRevolverCallback)
 
     return (
-        <Container component="main" maxWidth="md" sx={{ mt: 4 }}>
-            <Revolver shoot={shootRevolverVisual} />
-            <WordHintDisplayer word={word} keysUsed={keysUsed} />
-            <Keys keysUsed={keysUsed} guessKey={guessKey} />
-        </Container>
+        <>
+            <Container component="main" maxWidth="md" sx={{mt: 4}}>
+                {isGameOver && <Chip label={`Score: ${points}`} color="primary"/>}
+                <Revolver shoot={shootRevolverVisual}/>
+                {!isGameOver && <WordHintDisplayer word={word} keysUsed={keysUsed}/>}
+                {!isGameOver && <Keys keysUsed={keysUsed} guessKey={guessKey}/>}
+            </Container>
+            {isGameOver && <>
+                <Background/>
+                <Container component="div" maxWidth="md"
+                           sx={{mt: {xs: -40, sm: -30, md: -20}, position: 'relative', zIndex: 5}}>
+                    <Typography component="h1" variant='h1' textAlign='center' sx={{color: 'white'}}>
+                        Game Over
+                    </Typography>
+                    <Typography component="h3" variant='h3' textAlign='center' sx={{color: 'white'}}>
+                        Score: {points}
+                    </Typography>
+                    <Stack spacing={2} direction="row" justifyContent='center' sx={{mt: {xs: 2, sm: 10, md: 20}}}>
+                        <Link to='/'><Button color='primary' variant="outlined">Continue</Button></Link>
+                    </Stack>
+                </Container>
+            </>}
+
+        </>
     )
 }
 export default Game

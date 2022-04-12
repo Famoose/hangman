@@ -16,6 +16,7 @@ describe('test Game Controller', () => {
         expect(result.current.points).toBe(0)
         expect(result.current.keysUsed).toStrictEqual([])
         expect(result.current.guessKey).toBeDefined()
+        expect(result.current.isGameOver).toBeFalsy()
     })
 
     test('should guessKey wrong key', () => {
@@ -38,6 +39,8 @@ describe('test Game Controller', () => {
         expect(result.current.word).toBe('testword')
         expect(result.current.keysUsed).toContain('t')
         expect(shootCallback).toHaveBeenCalledTimes(0)
+        expect(result.current.isGameOver).toBeFalsy()
+
     })
 
     test('should guessKey once', () => {
@@ -79,6 +82,7 @@ describe('test Game Controller', () => {
             (k) => !'testword'.includes(k)
         ).length
         expect(shootCallback).toHaveBeenCalledTimes(wrongKeysUsed)
+        expect(result.current.isGameOver).toBeTruthy()
     })
 
     test('should guess word', () => {
@@ -96,5 +100,6 @@ describe('test Game Controller', () => {
         expect(result.current.round).toBe(1)
         expect(result.current.points).toBe(keysToUse.length)
         expect(shootCallback).toHaveBeenCalledTimes(0)
+        expect(result.current.isGameOver).toBeFalsy()
     })
 })

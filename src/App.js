@@ -9,10 +9,11 @@ import { UserContext } from './lib/Context'
 import { createTheme, ThemeProvider } from '@mui/material'
 import NavBar from './components/NavBar'
 import Game from './pages/Game'
+import {themeOptions} from "./lib/Theme";
 
 function App() {
     const userData = useUserData()
-    const theme = createTheme()
+    const theme = createTheme(themeOptions)
 
     return (
         <ThemeProvider theme={theme}>
@@ -23,7 +24,7 @@ function App() {
                         <Route path="/" element={<Home user={userData} />} />
                         <Route path="login" element={<Login />} />
                         <Route path="register" element={<Register />} />
-                        <Route path="game" element={<Game />} />
+                        <Route path="game/:sessionId" element={<Game />} />
                     </Routes>
                 </div>
             </UserContext.Provider>
