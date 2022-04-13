@@ -6,6 +6,7 @@ import { doc, setDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { Box, Button, Container, TextField, Typography } from '@mui/material'
 import {Trans, useTranslation} from "react-i18next";
+import {toast} from "react-hot-toast";
 
 const Register = () => {
     const {t} = useTranslation();
@@ -32,6 +33,7 @@ const Register = () => {
             reset()
             navigate(`/login`)
         } catch (e) {
+            toast.error('Register failed, please check your email and password')
             console.error('register failed')
             throw new Error(e)
         }

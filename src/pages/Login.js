@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { Box, Button, Container, TextField, Typography } from '@mui/material'
 import {Trans, useTranslation} from "react-i18next";
+import {toast} from "react-hot-toast";
 
 const Login = () => {
     const {t} = useTranslation();
@@ -30,6 +31,7 @@ const Login = () => {
             await signInWithEmailAndPassword(auth, data.email, data.password)
             reset()
         } catch (e) {
+            toast.error('Login failed, please check your email and password')
             console.error('login failed')
             throw new Error(e)
         }

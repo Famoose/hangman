@@ -12,6 +12,7 @@ import NavBar from './components/NavBar'
 import Game from './pages/Game'
 import {themeOptions} from "./lib/Theme";
 import {useLanguageState} from "./lib/UseLanguageState";
+import {Toaster} from "react-hot-toast";
 
 function App() {
     const userData = useUserData()
@@ -31,6 +32,7 @@ function App() {
                                 <Route path="register" element={<Register/>}/>
                                 <Route path="game/:sessionId" element={<Game/>}/>
                             </Routes>
+                            <Toaster/>
                         </div>
                     </UserContext.Provider>
                 </LangContext.Provider>

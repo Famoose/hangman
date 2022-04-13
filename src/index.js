@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './i18n';
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import {enableOfflinePersistence} from "./lib/FirebaseApp";
 
 ReactDOM.render(
     <BrowserRouter>
@@ -14,6 +15,8 @@ ReactDOM.render(
     </BrowserRouter>,
     document.getElementById('root')
 )
+
+enableOfflinePersistence();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
