@@ -1,6 +1,5 @@
 import React from "react";
 
-import {useEffect} from "react";
 import {collection, collectionGroup, limit, orderBy, query} from "firebase/firestore";
 import {db} from "../../lib/FirebaseApp";
 import {useCollection} from "react-firebase-hooks/firestore";
@@ -44,12 +43,6 @@ const ScoreBoard = (props) => {
     const refScoresPersonal = collection(db, 'users', props.user.uid, 'scores')
     const topTenPersonalQuery = query(refScoresPersonal, orderBy("points", 'desc'), limit(10))
     const [topTenPersonal] = useCollection(topTenPersonalQuery);
-
-    useEffect(async () => {
-    }, [topTenWorldWide])
-
-    useEffect(() => {
-    }, [topTenPersonal])
 
     return <Container component='section' maxWidth='lg'>
         <Typography component='h3' variant='h4' sx={{textAlign: 'center'}}>

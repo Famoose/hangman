@@ -35,19 +35,27 @@ export function useGameController(shootCallback, onRoundComplete) {
     const {generate} = WordGenerator()
 
     const [points, setPoints] = useState(0)
-    const [word, setWord] = useState(generate)
+    const [word, setWord] = useState(null)
     const [round, setRound] = useState(0)
     const [keysUsed, setKeyUsed] = useState([])
     const [revolverShoot, setRevolverShoot] = useState(0)
     const [revolverPosition, setRevolverPosition] = useState(0)
     const [isGameOver, setIsGameOver] = useState(false)
+    const [isGameStarted, setIsGameStarted] = useState(false)
 
     useEffect(() => {
         spinRevolver()
     }, [])
 
+    useEffect(() => {
+        if(generate){
+            setWord(generate())
+            setIsGameStarted(true)
+        }
+    }, [generate])
+
     const guessKey = (key) => {
-        if (keysUsed.includes(key)) {
+        if (!isGameStarted || isGameOver || keysUsed.includes(key)) {
             return
         }
         setKeyUsed((keysUsed) => [...keysUsed, key])

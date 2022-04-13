@@ -1,22 +1,24 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
+import {createRoot} from "react-dom/client";
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-import './i18n';
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import {enableOfflinePersistence} from "./lib/FirebaseApp";
 enableOfflinePersistence();
+import './i18n';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(
     <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById('root')
-)
-
+        <React.StrictMode>
+            <App/>
+        </React.StrictMode>
+    </BrowserRouter>
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

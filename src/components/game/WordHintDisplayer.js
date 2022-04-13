@@ -27,7 +27,7 @@ const WordHintDisplayer = (props) => {
             sx={{display: 'flex', justifyContent: 'space-evenly'}}
             fullWidth
         >
-            {props.word.split('').map((key, index) => (
+            {props.word && props.word.split('').map((key, index) => (
                 <Typography component="h1" key={index} variant={getTextSize(props.word)}>
                     {displayKeyIfGuessed(key)}
                 </Typography>
