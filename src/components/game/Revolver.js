@@ -8,7 +8,7 @@ const Revolver = (props) => {
     const triggerWithout = 'shootWithout'
     const triggerArmed = 'shootArmed'
     const params = {
-        src: '../revolver.riv',
+        src: process.env.PUBLIC_URL +'/revolver.riv',
         stateMachines: STATE_MACHINE_NAME,
         autoplay: true,
         artboard: 'revolver',
