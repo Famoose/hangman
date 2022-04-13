@@ -17,7 +17,7 @@ import { StaleWhileRevalidate } from 'workbox-strategies';
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
 
-registerRoute(({ request }) => true, new StaleWhileRevalidate({}));
+registerRoute(({}) => true, new StaleWhileRevalidate({}));
 
 
 // This allows the web app to trigger skipWaiting via
