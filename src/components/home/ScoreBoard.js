@@ -10,7 +10,7 @@ import {Trans} from "react-i18next";
 
 function ScoreBoardTable(props) {
     return <TableContainer component="aside">
-        <Table aria-label="top ten world wide">
+        <Table aria-label="top ten world wide" size="small">
             <TableBody>
                 {props.topTenDocs && props.topTenDocs.docs.map((doc, i) => (
                     <TableRow key={doc.id} sx={{'td': {border: 0}}}>

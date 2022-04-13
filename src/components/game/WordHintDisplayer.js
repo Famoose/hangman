@@ -8,14 +8,27 @@ const WordHintDisplayer = (props) => {
         return props.keysUsed.includes(key) ? key : '_'
     }
 
+    const getTextSize = (word) => {
+        if(word.length < 7){
+            return 'h2'
+        }
+        if(word.length < 13){
+            return 'h3'
+        }
+        if(word.length < 19){
+            return 'h4'
+        }
+        return 'h5'
+    }
+
     return (
         <Box
-            m={5}
+            mb={5}
             sx={{display: 'flex', justifyContent: 'space-evenly'}}
             fullWidth
         >
             {props.word.split('').map((key, index) => (
-                <Typography component="h1" key={index} variant='h3'>
+                <Typography component="h1" key={index} variant={getTextSize(props.word)}>
                     {displayKeyIfGuessed(key)}
                 </Typography>
             ))}

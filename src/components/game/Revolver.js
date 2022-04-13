@@ -36,7 +36,7 @@ const Revolver = (props) => {
         }
     }, [shootWithout, shootArmed])
 
-    return <Container sx={{height: {xs: '200px', sm: '250px', md: '300px', lg: '350px'}}}><RiveComponent/></Container>
+    return <Container sx={{ mt: {xs: -5, md: 0}, height: {xs: '200px', sm: '250px', md: '300px', lg: '350px'}}}><RiveComponent/></Container>
 }
 
 Revolver.propTypes = {

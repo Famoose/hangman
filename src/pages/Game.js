@@ -43,7 +43,7 @@ const Game = () => {
     return (
         <>
 
-            <Container component="main" maxWidth="md" sx={{mt: 4, position: 'relative', zIndex: 0}}>
+            <Container component="main" maxWidth="md" sx={{mt: 2, position: 'relative', zIndex: 0}}>
                 {!isGameOver && <Chip label={t('game.score', {points})} color="primary"/>}
                 <Revolver shoot={shootRevolverVisual}/>
                 {!isGameOver && <WordHintDisplayer word={word} keysUsed={keysUsed}/>}
@@ -52,7 +52,7 @@ const Game = () => {
             {isGameOver && <>
                 <Background/>
                 <Container component="div" maxWidth="md"
-                           sx={{mt: {xs: -30, sm: -30, md: -20}, position: 'relative', zIndex: 50}}>
+                           sx={{mt: {xs: -25, sm: -30, md: -30}, position: 'relative', zIndex: 50}}>
                     <Typography component="h1" variant='h1' textAlign='center' sx={{color: 'white'}}>
                         <Trans>game.gameover</Trans>
                     </Typography>
