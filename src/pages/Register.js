@@ -33,7 +33,7 @@ const Register = () => {
             reset()
             navigate(`/login`)
         } catch (e) {
-            toast.error('Register failed, please check your email and password')
+            toast.error(t('register.submitError'))
             console.error('register failed')
             throw new Error(e)
         }

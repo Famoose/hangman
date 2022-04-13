@@ -31,7 +31,7 @@ const Login = () => {
             await signInWithEmailAndPassword(auth, data.email, data.password)
             reset()
         } catch (e) {
-            toast.error('Login failed, please check your email and password')
+            toast.error(t('login.submitError'))
             console.error('login failed')
             throw new Error(e)
         }

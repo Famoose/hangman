@@ -45,7 +45,8 @@
         "required": "La password è richiesta"
       }
     },
-    "submit": "Entrare"
+    "submit": "Entrare",
+    "submitError": "Login fallito, controlla email e password"
   },
   "register": {
     "title": "Registra",
@@ -70,6 +71,15 @@
         "required": "Il nome utente è richiesto"
       }
     },
-    "submit": "Registra"
+    "submit": "Registra",
+    "submitError": "Registrazione fallita, controlla email e password"
+  },
+  "serviceWorker": {
+    "newVersion": {
+      "message": "Una nuova versione è disponibile!",
+      "action": "Ricarica"
+    },
+    "offline": "Ora sei offline, i giochi sono ancora salvati e caricati in seguito",
+    "online": "Sei di nuovo online"
   }
 }

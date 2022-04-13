@@ -45,7 +45,8 @@
         "required": "Passwort wird benötigt"
       }
     },
-    "submit": "Anmelden"
+    "submit": "Anmelden",
+    "submitError": "Anmeldung fehlgeschlagen, prüfen sie Email und Passwort"
   },
   "register": {
     "title": "Registrieren",
@@ -70,6 +71,15 @@
         "required": "Benutzername wird benötigt"
       }
     },
-    "submit": "Registrieren"
+    "submit": "Registrieren",
+    "submitError": "Registrierung ist fehlgeschlagen, prüfen sie Email und Passwort"
+  },
+  "serviceWorker": {
+    "newVersion": {
+      "message": "Eine neue Version ist verfügbar!",
+      "action": "Laden"
+    },
+    "offline": "Sie sind jetzt offline, die Spiele werden weiterhin gespeichert und später hochgeladen",
+    "online": "Sie sind wieder online"
   }
 }

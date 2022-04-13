@@ -45,7 +45,8 @@
         "required": "Password is required"
       }
     },
-    "submit": "Login"
+    "submit": "Login",
+    "submitError": "Login failed, please check your email and password"
   },
   "register": {
     "title": "Register",
@@ -70,6 +71,15 @@
         "required": "Username is required"
       }
     },
-    "submit": "Register"
+    "submit": "Register",
+    "submitError": "Register failed, please check your email and password"
+  },
+  "serviceWorker": {
+    "newVersion": {
+      "message": "A new version is available!",
+      "action": "Reload"
+    },
+    "offline": "You are now offline, your score will be saved until your online again",
+    "online": "You are now online again"
   }
 }
