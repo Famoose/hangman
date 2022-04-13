@@ -64,16 +64,15 @@
         ]
     },
     "devDependencies": {
-        "@testing-library/jest-dom": "^5.16.2",
-        "@testing-library/react": "^12.1.2",
-        "@testing-library/react-hooks": "^7.0.2",
-        "@testing-library/user-event": "^13.5.0",
-        "eslint": "^7.32.0",
-        "eslint-plugin-react": "^7.28.0",
-        "http-server": "^14.1.0",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^13.0.1",
+        "@testing-library/react-hooks": "^8.0.0",
+        "@testing-library/user-event": "^14.1.0",
+        "eslint": "^8.13.0",
+        "eslint-plugin-react": "^7.29.4",
         "husky": "^7.0.4",
-        "lint-staged": "^12.3.4",
-        "prettier": "^2.5.1"
+        "lint-staged": "^12.3.7",
+        "prettier": "^2.6.2"
     },
     "lint-staged": {
         "*.{tsx|jsx|ts|js}": [

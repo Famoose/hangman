@@ -1,12 +1,14 @@
 import {act, renderHook} from '@testing-library/react-hooks'
 import {USABLE_KEYS, useGameController} from './GameController'
-import * as randomWords from 'random-words'
+import {WordGenerator} from './WordGenerator'
 
-jest.mock('random-words')
+jest.mock('./WordGenerator')
 
 describe('test Game Controller', () => {
     beforeEach(() => {
-        randomWords.default.mockImplementation(() => 'testword')
+        WordGenerator.mockImplementation(() => { return {
+            generate: jest.fn(() => 'testword')
+        }})
     })
 
     test('should init GameController', () => {
