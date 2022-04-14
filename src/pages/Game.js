@@ -79,10 +79,10 @@ const Game = () => {
     )
 
     useEffect(() => {
-        if (playSpin) {
+        if (word && playSpin) {
             playSpin()
         }
-    }, [playSpin])
+    }, [word, playSpin])
 
     return (
         <>
@@ -115,7 +115,7 @@ const Game = () => {
                                 size="small"
                                 max={1}
                                 min={0}
-                                sx={{ width: 40 }}
+                                sx={{ width: 80 }}
                                 step={0.1}
                                 onChange={handleVolumeChange}
                             />
