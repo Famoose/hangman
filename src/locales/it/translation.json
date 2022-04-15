@@ -1,85 +1,85 @@
 {
-  "home": {
-    "ranking": "Elenco delle classifiche",
-    "worldWide": "In tutto il mondo",
-    "personal": "Personale",
-    "startGame": "Iniziare il gioco"
-  },
-  "nav": {
-    "languageSwitchButton": "Lingua",
-    "selectLanguageTooltip": "Cambiare lingua",
-    "languages": {
-      "german": "Tedesco",
-      "italian": "Italiano",
-      "english": "Inglese"
+    "home": {
+        "ranking": "Elenco delle classifiche",
+        "worldWide": "In tutto il mondo",
+        "personal": "Personale",
+        "startGame": "Iniziare il gioco"
     },
-    "settingsTooltip": "Impostazioni aperte",
-    "settings": {
-      "logout": "Disconnettersi"
+    "nav": {
+        "languageSwitchButton": "Lingua",
+        "selectLanguageTooltip": "Cambiare lingua",
+        "languages": {
+            "german": "Tedesco",
+            "italian": "Italiano",
+            "english": "Inglese"
+        },
+        "settingsTooltip": "Impostazioni aperte",
+        "settings": {
+            "logout": "Disconnettersi"
+        },
+        "pages": {
+            "home": "Home",
+            "register": "Registra",
+            "login": "Entrare"
+        }
     },
-    "pages": {
-      "home": "Casa",
-      "register": "Registra",
-      "login": "Entrare"
+    "game": {
+        "hint": "Era: {{word}}",
+        "score": "Punteggio: {{points}}",
+        "gameover": "Gioco finito",
+        "continue": "Continua"
+    },
+    "login": {
+        "title": "Entrare",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Inserisci un indirizzo email valido",
+                "required": "L'e-mail è richiesta"
+            }
+        },
+        "password": {
+            "label": "Password",
+            "error": {
+                "minLength": "La password deve avere almeno 5 caratteri",
+                "required": "La password è richiesta"
+            }
+        },
+        "submit": "Entrare",
+        "submitError": "Login fallito, controlla email e password"
+    },
+    "register": {
+        "title": "Registra",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Inserisci un indirizzo email valido",
+                "required": "L'e-mail è richiesta"
+            }
+        },
+        "password": {
+            "label": "Password",
+            "error": {
+                "minLength": "La password deve avere almeno 5 caratteri",
+                "required": "La password è richiesta"
+            }
+        },
+        "username": {
+            "label": "Nome utente",
+            "error": {
+                "minLength": "Il nome utente deve avere almeno 3 caratteri",
+                "required": "Il nome utente è richiesto"
+            }
+        },
+        "submit": "Registra",
+        "submitError": "Registrazione fallita, controlla email e password"
+    },
+    "serviceWorker": {
+        "newVersion": {
+            "message": "Una nuova versione è disponibile!",
+            "action": "Ricarica"
+        },
+        "offline": "Ora sei offline, i giochi sono ancora salvati e caricati in seguito",
+        "online": "Sei di nuovo online"
     }
-  },
-  "game": {
-    "hint": "Era: {{word}}",
-    "score": "Punteggio: {{points}}",
-    "gameover": "Gioco finito",
-    "continue": "Ulteriori"
-  },
-  "login": {
-    "title": "Entrare",
-    "email": {
-      "label": "Email",
-      "error": {
-        "pattern": "Inserisci un indirizzo email valido",
-        "required": "L'e-mail è richiesta"
-      }
-    },
-    "password": {
-      "label": "Password",
-      "error": {
-        "minLength": "La password deve avere almeno 5 caratteri",
-        "required": "La password è richiesta"
-      }
-    },
-    "submit": "Entrare",
-    "submitError": "Login fallito, controlla email e password"
-  },
-  "register": {
-    "title": "Registra",
-    "email": {
-      "label": "Email",
-      "error": {
-        "pattern": "Inserisci un indirizzo email valido",
-        "required": "L'e-mail è richiesta"
-      }
-    },
-    "password": {
-      "label": "Password",
-      "error": {
-        "minLength": "La password deve avere almeno 5 caratteri",
-        "required": "La password è richiesta"
-      }
-    },
-    "username": {
-      "label": "Nome utente",
-      "error": {
-        "minLength": "Il nome utente deve avere almeno 3 caratteri",
-        "required": "Il nome utente è richiesto"
-      }
-    },
-    "submit": "Registra",
-    "submitError": "Registrazione fallita, controlla email e password"
-  },
-  "serviceWorker": {
-    "newVersion": {
-      "message": "Una nuova versione è disponibile!",
-      "action": "Ricarica"
-    },
-    "offline": "Ora sei offline, i giochi sono ancora salvati e caricati in seguito",
-    "online": "Sei di nuovo online"
-  }
 }
