@@ -9,31 +9,32 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './NavBar.css'
-import {useContext} from 'react'
-import {UserContext} from '../lib/UserContext'
-import {auth} from '../lib/FirebaseApp'
-import UserSettings from "./nav/UserSettings";
-import LanguageSwitch from "./nav/LanguageSwitch";
-import {Trans} from "react-i18next";
+import { useContext } from 'react'
+import { UserContext } from '../lib/UserContext'
+import { auth } from '../lib/FirebaseApp'
+import UserSettings from './nav/UserSettings'
+import LanguageSwitch from './nav/LanguageSwitch'
+import { Trans } from 'react-i18next'
 
 const pages = [
-    {name: 'home', to: '/', onLogin: true},
-    {name: 'login', to: '/login', onLogin: false},
-    {name: 'register', to: '/register', onLogin: false},
+    { name: 'home', to: '/', onLogin: true },
+    { name: 'login', to: '/login', onLogin: false },
+    { name: 'register', to: '/register', onLogin: false },
 ]
 
 const langs = [
-    {key: 'de', name: 'german'},
-    {key: 'it', name: 'italian'},
-    {key: 'en', name: 'english'}
+    { key: 'de', name: 'german' },
+    { key: 'it', name: 'italian' },
+    { key: 'en', name: 'english' },
+    { key: 'sv', name: 'swedish' },
 ]
 
-const settings = [{name: 'logout', callback: () => auth.signOut()}]
+const settings = [{ name: 'logout', callback: () => auth.signOut() }]
 
 const ResponsiveAppBar = () => {
-    const {user, profile} = useContext(UserContext)
+    const { user, profile } = useContext(UserContext)
     const isLoggedIn = !!user && !!profile
     const [anchorElNav, setAnchorElNav] = React.useState(null)
     const handleOpenNavMenu = (event) => {
@@ -51,7 +52,7 @@ const ResponsiveAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
+                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
                         Hangman
                     </Typography>
@@ -59,7 +60,7 @@ const ResponsiveAppBar = () => {
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: {xs: 'flex', md: 'none'},
+                            display: { xs: 'flex', md: 'none' },
                         }}
                     >
                         <IconButton
@@ -70,7 +71,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -87,7 +88,7 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: {xs: 'block', md: 'none'},
+                                display: { xs: 'block', md: 'none' },
                             }}
                         >
                             {pages
@@ -99,7 +100,9 @@ const ResponsiveAppBar = () => {
                                     >
                                         <Link to={page.to}>
                                             <Typography textAlign="center">
-                                                <Trans>nav.pages.{page.name}</Trans>
+                                                <Trans>
+                                                    nav.pages.{page.name}
+                                                </Trans>
                                             </Typography>
                                         </Link>
                                     </MenuItem>
@@ -112,7 +115,7 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{
                             flexGrow: 1,
-                            display: {xs: 'flex', md: 'none'},
+                            display: { xs: 'flex', md: 'none' },
                         }}
                     >
                         Hangman
@@ -120,7 +123,7 @@ const ResponsiveAppBar = () => {
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: {xs: 'none', md: 'flex'},
+                            display: { xs: 'none', md: 'flex' },
                         }}
                     >
                         {pages
@@ -140,11 +143,14 @@ const ResponsiveAppBar = () => {
                                 </Link>
                             ))}
                     </Box>
-                    <Box sx={{flexGrow: 0}}>
+                    <Box sx={{ flexGrow: 0 }}>
                         {isLoggedIn && (
-                            <UserSettings settings={settings} profile={profile}/>
+                            <UserSettings
+                                settings={settings}
+                                profile={profile}
+                            />
                         )}
-                        <LanguageSwitch langs={langs} profile={profile}/>
+                        <LanguageSwitch langs={langs} profile={profile} />
                     </Box>
                 </Toolbar>
             </Container>

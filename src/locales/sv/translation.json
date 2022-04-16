@@ -1,0 +1,85 @@
+{
+    "home": {
+        "ranking": "Ranglista",
+        "worldWide": "Hela världen",
+        "personal": "Personligt",
+        "startGame": "Starta spelet"
+    },
+    "nav": {
+        "languageSwitchButton": "Språk",
+        "selectLanguageTooltip": "Ändra språk",
+        "languages": {
+            "german": "Tyska",
+            "italian": "Italienska",
+            "english": "Engelska"
+        },
+        "settingsTooltip": "Öppna inställningar",
+        "settings": {
+            "logout": "Logga ut"
+        },
+        "pages": {
+            "home": "Home",
+            "register": "Registrera",
+            "login": "Logga in"
+        }
+    },
+    "game": {
+        "hint": "Det var: {{word}}",
+        "score": "Resultat: {{points}}",
+        "gameover": "Game Over",
+        "continue": "Vidare"
+    },
+    "login": {
+        "title": "Logga in",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Ange en giltig e-postadress",
+                "required": "E-post krävs"
+            }
+        },
+        "password": {
+            "label": "Lösenord",
+            "error": {
+                "minLength": "Lösenordet måste innehålla minst 5 tecken",
+                "required": "Lösenord krävs"
+            }
+        },
+        "submit": "Logga in",
+        "submitError": "Inloggningen misslyckades, kontrollera e-postadress och lösenord"
+    },
+    "register": {
+        "title": "Registrera",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Ange en giltig e-postadress",
+                "required": "E-post krävs"
+            }
+        },
+        "password": {
+            "label": "Passwort",
+            "error": {
+                "minLength": "Lösenordet måste innehålla minst 5 tecken",
+                "required": "Lösenord krävs"
+            }
+        },
+        "username": {
+            "label": "Användarnamn",
+            "error": {
+                "minLength": "Användarnamnet måste bestå av minst 3 tecken",
+                "required": "Användarnamnet krävs"
+            }
+        },
+        "submit": "Registrera",
+        "submitError": "Registreringen misslyckades, kontrollera e-postadress och lösenord"
+    },
+    "serviceWorker": {
+        "newVersion": {
+            "message": "En ny version är tillgänglig!",
+            "action": "Ladda ner"
+        },
+        "offline": "Du är nu offline, men spelen kommer fortfarande att sparas och laddas upp senare",
+        "online": "Du är online igen"
+    }
+}
