@@ -81,24 +81,6 @@ self.addEventListener('fetch', (event) => {
     )
 })
 
-self.addEventListener('activate', (event) => {
-    const cacheAllowlist = [ASSET_CACHE_NAME]
-    event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames.map((cacheName) => {
-                    if (
-                        cacheAllowlist.indexOf(cacheName) === -1 &&
-                        !cacheName.includes('workbox')
-                    ) {
-                        return caches.delete(cacheName)
-                    }
-                })
-            )
-        })
-    )
-})
-
 // An example runtime caching route for requests that aren't handled by the
 // precache, in this case same-origin .png requests like those from in public/
 registerRoute(
