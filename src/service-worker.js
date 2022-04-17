@@ -57,7 +57,6 @@ const ASSET_CACHE_URLS = [
     '/sounds/revolver-fire.mp3',
     '/sounds/revolver-miss.mp3',
     '/sounds/revolver-spin.mp3',
-    'https://unpkg.com/@rive-app/canvas@1.0.39/rive.wasm',
     '/revolver.riv',
 ]
 
