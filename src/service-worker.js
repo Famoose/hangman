@@ -114,7 +114,8 @@ registerRoute(
 )
 
 registerRoute(
-    /\.(?:wasm)$/, //What image file types do you care about caching
+    // Add in any other file extensions or routing criteria as needed.
+    ({ url }) => url.pathname.endsWith('.wasm'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
     new StaleWhileRevalidate({
         cacheName: 'wasms',
         plugins: [
