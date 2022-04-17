@@ -47,24 +47,28 @@ registerRoute(
 )
 
 const ASSET_CACHE_NAME = 'game-assets-cache-v1'
+const ASSET_CACHE_URLS = [
+    '/manifest.json',
+    '/wordDicts/swedish/words.json',
+    '/wordDicts/german/words.json',
+    '/wordDicts/italian/words.json',
+    '/sounds/logoff.mp3',
+    '/sounds/logon.mp3',
+    '/sounds/revolver-fire.mp3',
+    '/sounds/revolver-miss.mp3',
+    '/sounds/revolver-spin.mp3',
+    'https://unpkg.com/@rive-app/canvas@1.0.39/rive.wasm',
+    '/revolver.riv',
+]
+
 self.addEventListener('install', (event) => {
     console.log('Attempting to install service worker and cache static assets')
     event.waitUntil(
         caches.open(ASSET_CACHE_NAME).then((cache) => {
             return cache.addAll(
-                [
-                    '/manifest.json',
-                    '/wordDicts/swedish/words.json',
-                    '/wordDicts/german/words.json',
-                    '/wordDicts/italian/words.json',
-                    '/sounds/logoff.mp3',
-                    '/sounds/logon.mp3',
-                    '/sounds/revolver-fire.mp3',
-                    '/sounds/revolver-miss.mp3',
-                    '/sounds/revolver-spin.mp3',
-                    'https://unpkg.com/@rive-app/canvas@1.0.39/rive.wasm',
-                    '/revolver.riv',
-                ],
+                ASSET_CACHE_URLS.map(function (urlToPrefetch) {
+                    return new Request(urlToPrefetch, { mode: 'no-cors' })
+                }),
                 { mode: 'no-cors' }
             )
         })
