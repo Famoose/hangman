@@ -65,12 +65,7 @@ self.addEventListener('install', (event) => {
     console.log('Attempting to install service worker and cache static assets')
     event.waitUntil(
         caches.open(ASSET_CACHE_NAME).then((cache) => {
-            return cache.addAll(
-                ASSET_CACHE_URLS.map(function (urlToPrefetch) {
-                    return new Request(urlToPrefetch, { mode: 'no-cors' })
-                }),
-                { mode: 'no-cors' }
-            )
+            return cache.addAll(ASSET_CACHE_URLS)
         })
     )
 })
@@ -111,6 +106,18 @@ registerRoute(
     /\.(?:png|jpg|jpeg|svg|gif|ico)$/, //What image file types do you care about caching
     new StaleWhileRevalidate({
         cacheName: 'images',
+        plugins: [
+            // Ensure that once this runtime cache reaches a maximum size the
+            // least-recently used images are removed.
+            new ExpirationPlugin({ maxEntries: 50 }),
+        ],
+    })
+)
+
+registerRoute(
+    /\.(?:wasm)$/, //What image file types do you care about caching
+    new StaleWhileRevalidate({
+        cacheName: 'wasms',
         plugins: [
             // Ensure that once this runtime cache reaches a maximum size the
             // least-recently used images are removed.
