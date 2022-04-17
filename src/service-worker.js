@@ -46,69 +46,67 @@ registerRoute(
     createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 )
 
+const ASSET_CACHE_NAME = 'game-assets-cache-v1'
+self.addEventListener('install', (event) => {
+    console.log('Attempting to install service worker and cache static assets')
+    event.waitUntil(
+        caches.open(ASSET_CACHE_NAME).then((cache) => {
+            return cache.addAll(
+                [
+                    '/manifest.json',
+                    '/wordDicts/swedish/words.json',
+                    '/wordDicts/german/words.json',
+                    '/wordDicts/italian/words.json',
+                    '/sounds/logoff.mp3',
+                    '/sounds/logon.mp3',
+                    '/sounds/revolver-fire.mp3',
+                    '/sounds/revolver-miss.mp3',
+                    '/sounds/revolver-spin.mp3',
+                    'https://unpkg.com/@rive-app/canvas@1.0.39/rive.wasm',
+                    '/revolver.riv',
+                ],
+                { mode: 'no-cors' }
+            )
+        })
+    )
+})
+
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request).then(function (response) {
+            // Cache hit - return response
+            if (response) {
+                return response
+            }
+            return fetch(event.request)
+        })
+    )
+})
+
+self.addEventListener('activate', (event) => {
+    const cacheAllowlist = [ASSET_CACHE_NAME]
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cacheName) => {
+                    if (
+                        cacheAllowlist.indexOf(cacheName) === -1 &&
+                        !cacheName.includes('workbox')
+                    ) {
+                        return caches.delete(cacheName)
+                    }
+                })
+            )
+        })
+    )
+})
+
 // An example runtime caching route for requests that aren't handled by the
 // precache, in this case same-origin .png requests like those from in public/
 registerRoute(
-    // Add in any other file extensions or routing criteria as needed.
-    ({ url }) =>
-        url.origin === self.location.origin && url.pathname.endsWith('.png'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+    /\.(?:png|jpg|jpeg|svg|gif|ico)$/, //What image file types do you care about caching
     new StaleWhileRevalidate({
         cacheName: 'images',
-        plugins: [
-            // Ensure that once this runtime cache reaches a maximum size the
-            // least-recently used images are removed.
-            new ExpirationPlugin({ maxEntries: 50 }),
-        ],
-    })
-)
-
-registerRoute(
-    // Add in any other file extensions or routing criteria as needed.
-    ({ url }) =>
-        url.origin === self.location.origin && url.pathname.endsWith('.riv'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
-    new StaleWhileRevalidate({
-        cacheName: 'rive',
-        plugins: [
-            // Ensure that once this runtime cache reaches a maximum size the
-            // least-recently used images are removed.
-            new ExpirationPlugin({ maxEntries: 50 }),
-        ],
-    })
-)
-
-registerRoute(
-    // Add in any other file extensions or routing criteria as needed.
-    ({ url }) => url.pathname.endsWith('.wasm'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
-    new StaleWhileRevalidate({
-        cacheName: 'wasms',
-        plugins: [
-            // Ensure that once this runtime cache reaches a maximum size the
-            // least-recently used images are removed.
-            new ExpirationPlugin({ maxEntries: 50 }),
-        ],
-    })
-)
-
-registerRoute(
-    // Add in any other file extensions or routing criteria as needed.
-    ({ url }) =>
-        url.origin === self.location.origin && url.pathname.endsWith('.json'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
-    new StaleWhileRevalidate({
-        cacheName: 'jsons',
-        plugins: [
-            // Ensure that once this runtime cache reaches a maximum size the
-            // least-recently used images are removed.
-            new ExpirationPlugin({ maxEntries: 50 }),
-        ],
-    })
-)
-
-registerRoute(
-    // Add in any other file extensions or routing criteria as needed.
-    ({ url }) =>
-        url.origin === self.location.origin && url.pathname.endsWith('.mp3'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
-    new StaleWhileRevalidate({
-        cacheName: 'sounds',
         plugins: [
             // Ensure that once this runtime cache reaches a maximum size the
             // least-recently used images are removed.

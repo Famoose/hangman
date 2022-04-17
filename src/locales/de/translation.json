@@ -1,85 +1,86 @@
 {
-  "home": {
-    "ranking": "Rangliste",
-    "worldWide": "Weltweit",
-    "personal": "Persönlich",
-    "startGame": "Spiel starten"
-  },
-  "nav": {
-    "languageSwitchButton": "Sprache",
-    "selectLanguageTooltip": "Sprache wechseln",
-    "languages": {
-      "german": "Deutsch",
-      "italian": "Italienisch",
-      "english": "Englisch"
+    "home": {
+        "ranking": "Rangliste",
+        "worldWide": "Weltweit",
+        "personal": "Persönlich",
+        "startGame": "Spiel starten"
     },
-    "settingsTooltip": "Einstellungen öffnen",
-    "settings": {
-      "logout": "Abmelden"
+    "nav": {
+        "languageSwitchButton": "Sprache",
+        "selectLanguageTooltip": "Sprache wechseln",
+        "languages": {
+            "german": "Deutsch",
+            "italian": "Italienisch",
+            "english": "Englisch",
+            "swedish": "Schwedisch"
+        },
+        "settingsTooltip": "Einstellungen öffnen",
+        "settings": {
+            "logout": "Abmelden"
+        },
+        "pages": {
+            "home": "Home",
+            "register": "Registrieren",
+            "login": "Anmelden"
+        }
     },
-    "pages": {
-      "home": "Home",
-      "register": "Registrieren",
-      "login": "Anmelden"
+    "game": {
+        "hint": "Es war: {{word}}",
+        "score": "Punktzahl: {{points}}",
+        "gameover": "Game Over",
+        "continue": "Weiter"
+    },
+    "login": {
+        "title": "Anmelden",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Bitte geben sie eine gültige Email an",
+                "required": "Email wird benötigt"
+            }
+        },
+        "password": {
+            "label": "Passwort",
+            "error": {
+                "minLength": "Passwort muss mindestens 5 Zeichen haben",
+                "required": "Passwort wird benötigt"
+            }
+        },
+        "submit": "Anmelden",
+        "submitError": "Anmeldung fehlgeschlagen, prüfen sie Email und Passwort"
+    },
+    "register": {
+        "title": "Registrieren",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Bitte geben sie eine gültige Email an",
+                "required": "Email wird benötigt"
+            }
+        },
+        "password": {
+            "label": "Passwort",
+            "error": {
+                "minLength": "Passwort muss mindestens 5 Zeichen haben",
+                "required": "Passwort wird benötigt"
+            }
+        },
+        "username": {
+            "label": "Benutzername",
+            "error": {
+                "minLength": "Benutzername muss mindestens 3 Zeichen haben",
+                "required": "Benutzername wird benötigt"
+            }
+        },
+        "submit": "Registrieren",
+        "submitError": "Registrierung ist fehlgeschlagen, prüfen sie Email und Passwort"
+    },
+    "serviceWorker": {
+        "newVersion": {
+            "message": "Eine neue Version ist verfügbar!",
+            "action": "Laden"
+        },
+        "offline": "Sie sind jetzt offline, die Spiele werden weiterhin gespeichert und später hochgeladen",
+        "online": "Sie sind wieder online"
     }
-  },
-  "game": {
-    "hint": "Es war: {{word}}",
-    "score": "Punktzahl: {{points}}",
-    "gameover": "Game Over",
-    "continue": "Weiter"
-  },
-  "login": {
-    "title": "Anmelden",
-    "email": {
-      "label": "Email",
-      "error": {
-        "pattern": "Bitte geben sie eine gültige Email an",
-        "required": "Email wird benötigt"
-      }
-    },
-    "password": {
-      "label": "Passwort",
-      "error": {
-        "minLength": "Passwort muss mindestens 5 Zeichen haben",
-        "required": "Passwort wird benötigt"
-      }
-    },
-    "submit": "Anmelden",
-    "submitError": "Anmeldung fehlgeschlagen, prüfen sie Email und Passwort"
-  },
-  "register": {
-    "title": "Registrieren",
-    "email": {
-      "label": "Email",
-      "error": {
-        "pattern": "Bitte geben sie eine gültige Email an",
-        "required": "Email wird benötigt"
-      }
-    },
-    "password": {
-      "label": "Passwort",
-      "error": {
-        "minLength": "Passwort muss mindestens 5 Zeichen haben",
-        "required": "Passwort wird benötigt"
-      }
-    },
-    "username": {
-      "label": "Benutzername",
-      "error": {
-        "minLength": "Benutzername muss mindestens 3 Zeichen haben",
-        "required": "Benutzername wird benötigt"
-      }
-    },
-    "submit": "Registrieren",
-    "submitError": "Registrierung ist fehlgeschlagen, prüfen sie Email und Passwort"
-  },
-  "serviceWorker": {
-    "newVersion": {
-      "message": "Eine neue Version ist verfügbar!",
-      "action": "Laden"
-    },
-    "offline": "Sie sind jetzt offline, die Spiele werden weiterhin gespeichert und später hochgeladen",
-    "online": "Sie sind wieder online"
-  }
 }

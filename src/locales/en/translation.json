@@ -1,85 +1,86 @@
 {
-  "home": {
-    "ranking": "Ranking",
-    "worldWide": "World wide",
-    "personal": "Personal",
-    "startGame": "Start Game"
-  },
-  "nav": {
-    "languageSwitchButton": "Language",
-    "selectLanguageTooltip": "Select Language",
-    "languages": {
-      "german": "German",
-      "italian": "Italian",
-      "english": "English"
+    "home": {
+        "ranking": "Ranking",
+        "worldWide": "World wide",
+        "personal": "Personal",
+        "startGame": "Start Game"
     },
-    "settingsTooltip": "Open Settings",
-    "settings": {
-      "logout": "Logout"
+    "nav": {
+        "languageSwitchButton": "Language",
+        "selectLanguageTooltip": "Select Language",
+        "languages": {
+            "german": "German",
+            "italian": "Italian",
+            "english": "English",
+            "swedish": "Swedish"
+        },
+        "settingsTooltip": "Open Settings",
+        "settings": {
+            "logout": "Logout"
+        },
+        "pages": {
+            "home": "Home",
+            "register": "Register",
+            "login": "Login"
+        }
     },
-    "pages": {
-      "home": "Home",
-      "register": "Register",
-      "login": "Login"
+    "game": {
+        "hint": "it was: {{word}}",
+        "score": "Score: {{points}}",
+        "gameover": "Game Over",
+        "continue": "Continue"
+    },
+    "login": {
+        "title": "Login",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Entered value does not match email format",
+                "required": "Email is required"
+            }
+        },
+        "password": {
+            "label": "Password",
+            "error": {
+                "minLength": "min length is 5",
+                "required": "Password is required"
+            }
+        },
+        "submit": "Login",
+        "submitError": "Login failed, please check your email and password"
+    },
+    "register": {
+        "title": "Register",
+        "email": {
+            "label": "Email",
+            "error": {
+                "pattern": "Entered value does not match email format",
+                "required": "Email is required"
+            }
+        },
+        "password": {
+            "label": "Password",
+            "error": {
+                "minLength": "min length is 5",
+                "required": "Password is required"
+            }
+        },
+        "username": {
+            "label": "Username",
+            "error": {
+                "minLength": "min length is 3",
+                "required": "Username is required"
+            }
+        },
+        "submit": "Register",
+        "submitError": "Register failed, please check your email and password"
+    },
+    "serviceWorker": {
+        "newVersion": {
+            "message": "A new version is available!",
+            "action": "Reload"
+        },
+        "offline": "You are now offline, your score will be saved until your online again",
+        "online": "You are now online again"
     }
-  },
-  "game": {
-    "hint": "it was: {{word}}",
-    "score": "Score: {{points}}",
-    "gameover": "Game Over",
-    "continue": "Continue"
-  },
-  "login": {
-    "title": "Login",
-    "email": {
-      "label": "Email",
-      "error": {
-        "pattern": "Entered value does not match email format",
-        "required": "Email is required"
-      }
-    },
-    "password": {
-      "label": "Password",
-      "error": {
-        "minLength": "min length is 5",
-        "required": "Password is required"
-      }
-    },
-    "submit": "Login",
-    "submitError": "Login failed, please check your email and password"
-  },
-  "register": {
-    "title": "Register",
-    "email": {
-      "label": "Email",
-      "error": {
-        "pattern": "Entered value does not match email format",
-        "required": "Email is required"
-      }
-    },
-    "password": {
-      "label": "Password",
-      "error": {
-        "minLength": "min length is 5",
-        "required": "Password is required"
-      }
-    },
-    "username": {
-      "label": "Username",
-      "error": {
-        "minLength": "min length is 3",
-        "required": "Username is required"
-      }
-    },
-    "submit": "Register",
-    "submitError": "Register failed, please check your email and password"
-  },
-  "serviceWorker": {
-    "newVersion": {
-      "message": "A new version is available!",
-      "action": "Reload"
-    },
-    "offline": "You are now offline, your score will be saved until your online again",
-    "online": "You are now online again"
-  }
 }

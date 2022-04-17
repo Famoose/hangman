@@ -11,7 +11,8 @@
         "languages": {
             "german": "Tyska",
             "italian": "Italienska",
-            "english": "Engelska"
+            "english": "Engelska",
+            "swedish": "Svenska"
         },
         "settingsTooltip": "Öppna inställningar",
         "settings": {

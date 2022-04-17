@@ -52,7 +52,6 @@ export function WordGenerator() {
             germanWords.length > 0 &&
             swedishWords.length > 0
         ) {
-            console.log(swedishWords)
             setGenerate(() => () => {
                 if (lang === 'de') {
                     return whileUntilValidWorld(
