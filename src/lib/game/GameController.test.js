@@ -1,12 +1,12 @@
 import {act, renderHook} from '@testing-library/react-hooks'
 import {USABLE_KEYS, useGameController} from './GameController'
-import {WordGenerator} from './WordGenerator'
+import {useWordGenerator} from './WordGenerator'
 
 jest.mock('./WordGenerator')
 
 describe('test Game Controller', () => {
     beforeEach(() => {
-        WordGenerator.mockImplementation(() => { return {
+        useWordGenerator.mockImplementation(() => { return {
             generate: jest.fn(() => 'testword')
         }})
     })

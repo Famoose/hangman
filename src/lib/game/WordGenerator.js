@@ -1,7 +1,8 @@
 import * as randomWords from 'random-words'
-import { USABLE_KEYS } from './GameController'
-import { useCallback, useContext, useEffect, useState } from 'react'
-import { LangContext } from '../LangContext'
+import {USABLE_KEYS} from './GameController'
+import {useCallback, useContext, useEffect, useState} from 'react'
+import {LangContext} from '../LangContext'
+import {WordService} from "../integration/WordService";
 
 const isValidWord = (word) => {
     const wordLetters = word.toLowerCase().split('')
@@ -21,8 +22,8 @@ const whileUntilValidWorld = (wordGenerator) => {
     return word
 }
 
-export function WordGenerator() {
-    const { lang } = useContext(LangContext)
+export function useWordGenerator() {
+    const {lang} = useContext(LangContext)
 
     const [germanWords, setGermanWords] = useState([])
     const [italianWords, setItalianWords] = useState([])
@@ -30,16 +31,18 @@ export function WordGenerator() {
 
     const [generate, setGenerate] = useState(null)
 
-    const fetchWordDicts = useCallback(() => {
-        fetch(`${process.env.PUBLIC_URL}/wordDicts/german/words.json`)
-            .then((r) => r.json())
-            .then((r) => setGermanWords(r))
-        fetch(`${process.env.PUBLIC_URL}/wordDicts/italian/words.json`)
-            .then((r) => r.json())
-            .then((r) => setItalianWords(r))
-        fetch(`${process.env.PUBLIC_URL}/wordDicts/swedish/words.json`)
-            .then((r) => r.json())
-            .then((r) => setSwedishWords(r))
+    const fetchWordDicts = useCallback(async () => {
+        const {getWordDicts} = WordService();
+
+        const german = await getWordDicts('german')
+        setGermanWords(german)
+
+        const italian = await getWordDicts('italian')
+        setItalianWords(italian)
+
+        const swedish = await getWordDicts('swedish')
+        setSwedishWords(swedish)
+
     }, [])
 
     useEffect(() => {
@@ -58,21 +61,21 @@ export function WordGenerator() {
                         () =>
                             germanWords[
                                 Math.floor(Math.random() * germanWords.length)
-                            ]
+                                ]
                     )
                 } else if (lang === 'it') {
                     return whileUntilValidWorld(
                         () =>
                             italianWords[
                                 Math.floor(Math.random() * italianWords.length)
-                            ]
+                                ]
                     )
                 } else if (lang === 'sv') {
                     return whileUntilValidWorld(
                         () =>
                             swedishWords[
                                 Math.floor(Math.random() * swedishWords.length)
-                            ]
+                                ]
                     )
                 } else {
                     if (lang !== 'en') {

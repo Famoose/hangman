@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {WordGenerator} from "./WordGenerator";
+import {useWordGenerator} from "./WordGenerator";
 
 export const USABLE_KEYS = [
     'a',
@@ -32,7 +32,7 @@ export const USABLE_KEYS = [
 export const CHAMBER_SIZE = 10
 
 export function useGameController(shootCallback, onRoundComplete) {
-    const {generate} = WordGenerator()
+    const {generate} = useWordGenerator()
 
     const [points, setPoints] = useState(0)
     const [word, setWord] = useState(null)
